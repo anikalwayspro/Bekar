@@ -43,7 +43,7 @@
 <a href="https://telegram.me/Kaizuryu"><img src="https://img.shields.io/badge/-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
 <p align="center">
-<a href="https://telegram.me/Xelcius"><img src="https://img.shields.io/badge/%20Anonymous-blue.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://telegram.me/Xelcius"><img src="https://img.shields.io/badge/%20Xelcius-blue.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
 
 ━━━━━━━━━━━━━━━━━━━━
