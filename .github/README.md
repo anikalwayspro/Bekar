@@ -4,10 +4,6 @@
     ──「 Kaizuryu Bot 」──
 </h2>
 
-<p align="center">
-  <img src="https://github.com/RimuruDemonlord/KaizuryuBot/blob/master/KaizuryuBot/resources/fglitch.gif">
-</p>
-
 ━━━━━━━━━━━━━━━━━━━━
 
 <p align="center">
