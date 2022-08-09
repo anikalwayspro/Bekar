@@ -56,6 +56,10 @@
          "description": "Your username without the @",
          "value": "Xelcius"
       },
+      "DATABASE_URL": {
+         "description": "SQL",
+         "value": ""
+      },         
       "SUPPORT_CHAT": {
          "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to Kaizuryu Support than consider you made an enemy.",
          "required": true,
