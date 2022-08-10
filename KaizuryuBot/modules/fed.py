@@ -2352,6 +2352,7 @@ def get_chat(chat_id, chat_data):
 
 __mod_name__ = "Federations"
 
+
 def fed_owner_help(update: Update, context: CallbackContext):
     update.effective_message.reply_text(
         gs(update.effective_chat.id, "FED_OWNER_HELP"),
