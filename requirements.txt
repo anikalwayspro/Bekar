@@ -4,7 +4,7 @@ lxml
 wget
 beautifulsoup4
 requests
-python-telegram-bot==13.11
+python-telegram-bot
 youtube_search_python
 sqlalchemy==1.4.40
 PyDictionary
