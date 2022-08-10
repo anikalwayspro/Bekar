@@ -11,6 +11,7 @@ import math
 import time
 from KaizuryuBot.modules.helper_funcs.decorators import Asukacmd
 
+
 def shorten(description, info="anilist.co"):
     msg = ""
     if len(description) > 700:
@@ -157,6 +158,7 @@ query ($id: Int,$search: String) {
 
 url = "https://graphql.anilist.co"
 
+
 @Asukacmd(command="airing")
 def airing(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -178,6 +180,7 @@ def airing(update: Update, context: CallbackContext):
     else:
         msg += f"\n*Episode*:{response['episodes']}\n*Status*: `N/A`"
     update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN)
+
 
 @Asukacmd(command="anime")
 def anime(update: Update, context: CallbackContext):  # sourcery no-metrics
@@ -252,6 +255,7 @@ def anime(update: Update, context: CallbackContext):  # sourcery no-metrics
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
 
+
 @Asukacmd(command="character")
 def character(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -285,6 +289,7 @@ def character(update: Update, context: CallbackContext):
             update.effective_message.reply_text(
                 msg.replace("<b>", "</b>"), parse_mode=ParseMode.MARKDOWN
             )
+
 
 @Asukacmd(command="manga")
 def manga(update: Update, context: CallbackContext):
@@ -355,7 +360,9 @@ def manga(update: Update, context: CallbackContext):
 
 from AsukaRobot.modules.language import gs
 
+
 def get_help(chat):
     return gs(chat, "anilist_help")
+
 
 __mod_name__ = "AniList"
