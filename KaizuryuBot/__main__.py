@@ -103,7 +103,9 @@ buttons = [
     ],
     [
         InlineKeyboardButton(text="Oᴡɴᴇʀ", url=f"tg://user?id={OWNER_ID}"),
-        InlineKeyboardButton(text="Sᴏᴜʀᴄᴇ", url=f"https://github.com/RimuruDemonlord/KaizuryuBot"),
+        InlineKeyboardButton(
+            text="Sᴏᴜʀᴄᴇ", url=f"https://github.com/RimuruDemonlord/KaizuryuBot"
+        ),
     ],
 ]
 
