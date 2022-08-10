@@ -8,6 +8,13 @@ from aiohttp import ClientSession
 from Python_ARQ import ARQ
 from pyrogram import Client, errors
 from telethon import TelegramClient
+from KaizuryuBot.services.quoteapi import Quotly
+
+
+#--------------------#
+quotly = Quotly()
+#--------------------#
+
 
 StartTime = time.time()
 
