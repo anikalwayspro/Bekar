@@ -2,8 +2,6 @@
 ## telegram.dog/YASH_SHARMA_1807?start=papa
 
 
-
-
 from asyncio import sleep
 
 from telethon.errors import MessageDeleteForbiddenError, MessageNotModifiedError
