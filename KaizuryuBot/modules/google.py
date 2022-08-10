@@ -92,7 +92,7 @@ useragent = "Mozilla/5.0 (Linux; Android 11; SM-M017F Build/PPR1.180610.011; wv)
 opener.addheaders = [("User-agent", useragent)]
 
 
-@register(pattern=r"^/reverse|grs|pp|p(?: |$)(\d*)")
+@register(pattern=r"^/reverse|/grs|/pp|/p(?: |$)(\d*)")
 async def okgoogle(img):
     """For .reverse command, Google search images and stickers."""
     if os.path.isfile("okgoogle.png"):
