@@ -60,7 +60,7 @@ vi,xh,yi,yo,zh,zh_CN,zh_TW,zu`
 """
 __mod_name__ = "Tʀᴀɴsʟᴀᴛᴏʀ"
 
-TRANSLATE_HANDLER = DisableAbleCommandHandler(["tr", "tl"], totranslate)
+TRANSLATE_HANDLER = DisableAbleCommandHandler(["tr", "tl"], totranslate, run_async=True)
 
 dispatcher.add_handler(TRANSLATE_HANDLER)
 

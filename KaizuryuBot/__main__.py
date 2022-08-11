@@ -22,7 +22,7 @@ from KaizuryuBot import (
     START_IMG,
     SUPPORTVID,
     telethn,
-    pbot,
+    pgram,
     updater,
 )
 
@@ -182,7 +182,7 @@ def send_help(chat_id, text, keyboard=None):
     )
 
 
-@run_async
+
 def test(update: Update, context: CallbackContext):
     # pprint(eval(str(update)))
     update.effective_message.reply_text(
@@ -192,7 +192,7 @@ def test(update: Update, context: CallbackContext):
     print(update.effective_message)
 
 
-@run_async
+
 def start(update: Update, context: CallbackContext):
     args = context.args
     uptime = get_readable_time((time.time() - StartTime))
@@ -303,7 +303,7 @@ def error_callback(update: Update, context: CallbackContext):
         # handle all other telegram related errors
 
 
-@run_async
+
 def help_button(update, context):
     query = update.callback_query
     mod_match = re.match(r"help_module\((.+?)\)", query.data)
@@ -368,7 +368,7 @@ def help_button(update, context):
         pass
 
 
-@run_async
+
 def Kaizuryu_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
     if query.data == "kaizuryu_":
@@ -458,7 +458,7 @@ def Kaizuryu_about_callback(update: Update, context: CallbackContext):
         )
 
 
-@run_async
+
 def Source_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
     if query.data == "source_":
@@ -497,7 +497,7 @@ def Source_about_callback(update: Update, context: CallbackContext):
         )
 
 
-@run_async
+
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
     args = update.effective_message.text.split(None, 1)
@@ -606,7 +606,7 @@ def send_settings(chat_id, user_id, user=False):
             )
 
 
-@run_async
+
 def settings_button(update: Update, context: CallbackContext):
     query = update.callback_query
     user = update.effective_user
@@ -690,7 +690,7 @@ def settings_button(update: Update, context: CallbackContext):
             LOGGER.exception("Exception in settings buttons. %s", str(query.data))
 
 
-@run_async
+
 def get_settings(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
@@ -722,7 +722,7 @@ def get_settings(update: Update, context: CallbackContext):
         send_settings(chat.id, user.id, True)
 
 
-@run_async
+
 def donate(update: Update, context: CallbackContext):
     user = update.effective_message.from_user
     chat = update.effective_chat  # type: Optional[Chat]
@@ -803,24 +803,24 @@ def main():
         except BadRequest as e:
             LOGGER.warning(e.message)
 
-    test_handler = CommandHandler("test", test)
-    start_handler = CommandHandler("start", start)
+    test_handler = CommandHandler("test", test, run_async=True)
+    start_handler = CommandHandler("start", start, run_async=True)
 
-    help_handler = CommandHandler("help", get_help)
-    help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_.*")
+    help_handler = CommandHandler("help", get_help, run_async=True)
+    help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_.*", run_async=True)
 
-    settings_handler = CommandHandler("settings", get_settings)
-    settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
+    settings_handler = CommandHandler("settings", get_settings, run_async=True)
+    settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_", run_async=True)
 
     about_callback_handler = CallbackQueryHandler(
         Kaizuryu_about_callback, pattern=r"kaizuryu_"
-    )
+    , run_async=True)
     source_callback_handler = CallbackQueryHandler(
         Source_about_callback, pattern=r"source_"
-    )
+    , run_async=True)
 
-    donate_handler = CommandHandler("donate", donate)
-    migrate_handler = MessageHandler(Filters.status_update.migrate, migrate_chats)
+    donate_handler = CommandHandler("donate", donate, run_async=True)
+    migrate_handler = MessageHandler(Filters.status_update.migrate, migrate_chats, run_async=True)
 
     dispatcher.add_handler(test_handler)
     dispatcher.add_handler(start_handler)
@@ -845,19 +845,19 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info("Using long polling.")
-        updater.start_polling(timeout=15, read_latency=4, clean=True)
+        LOGGER.info(f"Kaizuryu started, Using long polling. | BOT: [@{dispatcher.bot.username}]")
+        updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True, allowed_updates=Update.ALL_TYPES)
 
-    if len(argv) not in (1, 3, 4):
-        telethn.disconnect()
-    else:
+    if len(argv) in {1, 3, 4}:
         telethn.run_until_disconnected()
 
+    else:
+        telethn.disconnect()
     updater.idle()
 
 
 if __name__ == "__main__":
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
-    pbot.start()
+    pgram.start()
     main()

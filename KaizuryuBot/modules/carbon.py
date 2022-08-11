@@ -1,11 +1,11 @@
 from pyrogram.types import Message
 from pyrogram import filters
-from KaizuryuBot import pbot
+from KaizuryuBot import pgram
 from KaizuryuBot.utils.errors import capture_err
 from KaizuryuBot.utils.functions import make_carbon
 
 
-@pbot.on_message(filters.command("carbon"))
+@pgram.on_message(filters.command("carbon"))
 @capture_err
 async def carbon_func(_, message):
     if not message.reply_to_message:
@@ -15,7 +15,7 @@ async def carbon_func(_, message):
     m = await message.reply_text("😴`ɢᴇɴᴇʀᴀᴛɪɴɢ ᴄᴀʀʙᴏɴ...`")
     carbon = await make_carbon(message.reply_to_message.text)
     await m.edit("`ᴜᴩʟᴏᴀᴅɪɴɢ ɢᴇɴᴇʀᴀᴛᴇᴅ ᴄᴀʀʙᴏɴ...`")
-    await pbot.send_photo(message.chat.id, carbon)
+    await pgram.send_photo(message.chat.id, carbon)
     await m.delete()
     carbon.close()
 

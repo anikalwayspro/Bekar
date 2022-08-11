@@ -8,7 +8,7 @@ from pyrogram.types import (
     Message,
 )
 
-from KaizuryuBot import pbot as Client
+from KaizuryuBot import pgram as Client
 from KaizuryuBot import (
     OWNER_ID as owner_id,
     OWNER_USERNAME as owner_usn,

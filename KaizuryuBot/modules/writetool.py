@@ -3,7 +3,7 @@ from requests import get
 from pyrogram import filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
-from KaizuryuBot import pbot as kaizuryu, dispatcher, SUPPORT_CHAT
+from KaizuryuBot import pgram as kaizuryu, dispatcher, SUPPORT_CHAT
 
 
 @kaizuryu.on_message(filters.command("write"))

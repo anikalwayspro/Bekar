@@ -1,7 +1,7 @@
 from pyrogram import filters
 from pyrogram.types import Message
 
-from KaizuryuBot import pbot as app
+from KaizuryuBot import pgram
 from KaizuryuBot.utils.errors import capture_err
 
 __help__ = """
@@ -10,7 +10,7 @@ __help__ = """
 __mod_name__ = "Wᴇʙsʜᴏᴛ​​"
 
 
-@app.on_message(filters.command("webss"))
+@pgram.on_message(filters.command("webss"))
 @capture_err
 async def take_ss(_, message: Message):
     try:

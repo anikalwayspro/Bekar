@@ -4,7 +4,7 @@ from pyrogram import filters
 from pyrogram.errors import PeerIdInvalid
 from pyrogram.types import Message, User
 
-from KaizuryuBot import pbot
+from KaizuryuBot import pgram
 
 
 def ReplyCheck(message: Message):
@@ -52,7 +52,7 @@ def FullName(user: User):
     return user.first_name + " " + user.last_name if user.last_name else user.first_name
 
 
-@pbot.on_message(filters.command("whois"))
+@pgram.on_message(filters.command("whois"))
 async def whois(client, message):
     cmd = message.command
     if not message.reply_to_message and len(cmd) == 1:

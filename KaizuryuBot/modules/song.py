@@ -6,7 +6,7 @@ import yt_dlp
 
 from pyrogram import filters
 from youtube_search import YoutubeSearch
-from KaizuryuBot import pbot, SUPPORT_CHAT
+from KaizuryuBot import pgram, SUPPORT_CHAT
 
 
 def time_to_seconds(time):
@@ -14,7 +14,7 @@ def time_to_seconds(time):
     return sum(int(x) * 60**i for i, x in enumerate(reversed(stringt.split(":"))))
 
 
-@pbot.on_message(filters.command(["song", "music"]))
+@pgram.on_message(filters.command(["song", "music"]))
 def song(client, message):
 
     message.delete()

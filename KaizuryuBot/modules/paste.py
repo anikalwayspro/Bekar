@@ -8,7 +8,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton
 
 from KaizuryuBot import aiohttpsession as session
-from KaizuryuBot import pbot as app
+from KaizuryuBot import pgram
 from KaizuryuBot.utils.errors import capture_err
 from KaizuryuBot.utils.pastebin import paste
 
@@ -30,7 +30,7 @@ async def isPreviewUp(preview: str) -> bool:
     return False
 
 
-@app.on_message(filters.command("paste"))
+@pgram.on_message(filters.command("paste"))
 @capture_err
 async def paste_func(_, message):
     if not message.reply_to_message:

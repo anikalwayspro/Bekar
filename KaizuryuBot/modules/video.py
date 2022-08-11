@@ -13,7 +13,7 @@ from pyrogram.types import Message
 from yt_dlp import YoutubeDL
 from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
-from KaizuryuBot import pbot
+from KaizuryuBot import pgram
 
 
 def get_file_extension_from_url(url):
@@ -36,7 +36,7 @@ def get_text(message: Message) -> [None, str]:
         return None
 
 
-@pbot.on_message(filters.command(["vsong", "video"]))
+@pgram.on_message(filters.command(["vsong", "video"]))
 async def ytmusic(client, message: Message):
     urlissed = get_text(message)
     await message.delete()

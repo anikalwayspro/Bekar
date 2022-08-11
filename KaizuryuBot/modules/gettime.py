@@ -58,7 +58,7 @@ def generate_time(to_find: str, findtype: List[str]) -> str:
     return result
 
 
-@run_async
+
 def gettime(update: Update, context: CallbackContext):
     message = update.effective_message
 
@@ -99,7 +99,7 @@ __help__ = """
 💡 Ex:- /time IN *:* It will shows Indian current time and date..
 """
 
-TIME_HANDLER = DisableAbleCommandHandler("time", gettime)
+TIME_HANDLER = DisableAbleCommandHandler("time", gettime, run_async=True)
 
 dispatcher.add_handler(TIME_HANDLER)
 

@@ -4,7 +4,7 @@ from pyrogram import __version__ as z
 from telethon import __version__ as s
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import filters
-from KaizuryuBot import pbot as client, dispatcher, OWNER_USERNAME
+from KaizuryuBot import pgram as client, dispatcher, OWNER_USERNAME
 
 
 Kaizuryu = "https://telegra.ph/file/9b57400269bec8352c09f.jpg"

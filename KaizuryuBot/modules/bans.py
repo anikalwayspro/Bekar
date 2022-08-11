@@ -32,7 +32,7 @@ from KaizuryuBot.modules.helper_funcs.string_handling import extract_time
 from KaizuryuBot.modules.log_channel import gloggable, loggable
 
 
-@run_async
+
 @connection_status
 @bot_admin
 @can_restrict
@@ -140,7 +140,7 @@ def ban(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-@run_async
+
 @connection_status
 @bot_admin
 @can_restrict
@@ -229,7 +229,7 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-@run_async
+
 @connection_status
 @bot_admin
 @can_restrict
@@ -289,7 +289,7 @@ def kick(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-@run_async
+
 @bot_admin
 @can_restrict
 def kickme(update: Update, context: CallbackContext):
@@ -305,7 +305,7 @@ def kickme(update: Update, context: CallbackContext):
         update.effective_message.reply_text("Huh? I can't :/")
 
 
-@run_async
+
 @connection_status
 @bot_admin
 @can_restrict
@@ -354,7 +354,7 @@ def unban(update: Update, context: CallbackContext) -> str:
     return log
 
 
-@run_async
+
 @connection_status
 @bot_admin
 @can_restrict
@@ -411,12 +411,13 @@ __help__ = """
  ❍ /kick <userhandle>*:* kicks a user out of the group, (via handle, or reply)
 """
 
-BAN_HANDLER = CommandHandler(["ban", "sban"], ban)
-TEMPBAN_HANDLER = CommandHandler(["tban"], temp_ban)
-KICK_HANDLER = CommandHandler("kick", kick)
-UNBAN_HANDLER = CommandHandler("unban", unban)
-ROAR_HANDLER = CommandHandler("roar", selfunban)
-KICKME_HANDLER = DisableAbleCommandHandler("kickme", kickme, filters=Filters.group)
+BAN_HANDLER = CommandHandler(["ban", "sban"], ban, run_async=True)
+TEMPBAN_HANDLER = CommandHandler(["tban"], temp_ban, run_async=True)
+KICK_HANDLER = CommandHandler("kick", kick, run_async=True)
+UNBAN_HANDLER = CommandHandler("unban", unban, run_async=True)
+ROAR_HANDLER = CommandHandler("roar", selfunban, run_async=True)
+KICKME_HANDLER = DisableAbleCommandHandler("kickme", kickme, filters=Filters.chat_type.groups, run_async=True)
+
 
 dispatcher.add_handler(BAN_HANDLER)
 dispatcher.add_handler(TEMPBAN_HANDLER)

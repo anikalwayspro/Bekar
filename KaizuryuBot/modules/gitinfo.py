@@ -1,7 +1,7 @@
 # © @RimuruDemonlord
 import aiohttp
 from pyrogram import filters
-from KaizuryuBot import pbot
+from KaizuryuBot import pgram
 from KaizuryuBot.pyrogramee.errors import capture_err
 
 
@@ -14,7 +14,7 @@ I will give information about github profile
 """
 
 
-@pbot.on_message(filters.command("github"))
+@pgram.on_message(filters.command("github"))
 @capture_err
 async def github(_, message):
     if len(message.command) != 2:

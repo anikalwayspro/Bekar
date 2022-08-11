@@ -3,7 +3,7 @@ import io
 import requests
 from requests import get
 from pyrogram.types import Message
-from KaizuryuBot import pbot, dispatcher, SUPPORT_CHAT
+from KaizuryuBot import pgram, dispatcher, SUPPORT_CHAT
 from bs4 import *
 from pyrogram import filters
 from PIL import Image
@@ -23,7 +23,7 @@ def get_text(message: Message) -> [None, str]:
         return None
 
 
-@pbot.on_message(filters.command(["wall", "wallpaper"]))
+@pgram.on_message(filters.command(["wall", "wallpaper"]))
 async def wall(client, message):
     quew = get_text(message)
     if not quew:

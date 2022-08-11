@@ -1,12 +1,12 @@
 import asyncio
 from pyrogram import filters
 from pyrogram.types import ChatPermissions, Message
-from KaizuryuBot import pbot as app
+from KaizuryuBot import pgram
 
 
 async def member_permissions(chat_id: int, user_id: int):
     perms = []
-    member = await app.get_chat_member(chat_id, user_id)
+    member = await pgram.get_chat_member(chat_id, user_id)
     if member.can_post_messages:
         perms.append("can_post_messages")
     if member.can_edit_messages:

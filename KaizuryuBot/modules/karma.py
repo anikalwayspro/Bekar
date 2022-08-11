@@ -3,7 +3,7 @@ from pyrogram import filters
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
 
-from KaizuryuBot import pbot as app
+from KaizuryuBot import pgram
 from KaizuryuBot.utils.errors import capture_err
 from KaizuryuBot.utils.permissions import adminsOnly
 from KaizuryuBot.helper_extra.dbfun import (
@@ -28,7 +28,7 @@ karma_positive_group = 3
 karma_negative_group = 4
 
 
-@app.on_message(
+@pgram.on_message(
     filters.text
     & filters.group
     & filters.incoming
@@ -64,7 +64,7 @@ async def upvote(_, message):
     )
 
 
-@app.on_message(
+@pgram.on_message(
     filters.text
     & filters.group
     & filters.incoming
@@ -100,7 +100,7 @@ async def upvote(_, message):
     )
 
 
-@app.on_message(
+@pgram.on_message(
     filters.text
     & filters.group
     & filters.incoming
@@ -137,7 +137,7 @@ async def downvote(_, message):
     )
 
 
-@app.on_message(filters.command("karmastat") & filters.group)
+@pgram.on_message(filters.command("karmastat") & filters.group)
 @capture_err
 async def karma(_, message):
     chat_id = message.chat.id
@@ -164,7 +164,7 @@ async def karma(_, message):
             if limit > 9:
                 break
             try:
-                user = await app.get_users(int(user_idd))
+                user = await pgram.get_users(int(user_idd))
                 await asyncio.sleep(0.8)
             except Exception:
                 continue
@@ -182,7 +182,7 @@ async def karma(_, message):
         await message.reply_text(f"**Total Points**: __{karma}__")
 
 
-@app.on_message(filters.command("karma") & ~filters.private)
+@pgram.on_message(filters.command("karma") & ~filters.private)
 @adminsOnly("can_change_info")
 async def captcha_state(_, message):
     usage = "**Usage:**\n/karma [ON|OFF]"

@@ -124,4 +124,4 @@ def list_errors(update: Update, context: CallbackContext):
 
 
 dispatcher.add_error_handler(error_callback)
-dispatcher.add_handler(CommandHandler("errors", list_errors))
+dispatcher.add_handler(CommandHandler("errors", list_errors, run_async=True))
