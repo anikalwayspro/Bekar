@@ -96,8 +96,8 @@ class CustomCommandHandler(CommandHandler):
                         and command[1].lower() == message.bot.username.lower()
                     ):
                         return None
-                    if SpamChecker.check_user(user_id):
-                        return None
+                   # if SpamChecker.check_user(user_id):
+                 #       return None
                     filter_result = self.filters(update)
                     if filter_result:
                         return args, filter_result
