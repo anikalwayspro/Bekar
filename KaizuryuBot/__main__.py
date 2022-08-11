@@ -792,9 +792,8 @@ def main():
 ㅤ๏ **ʟɪʙʀᴀʀʏ :** `{telever}`
 ㅤ๏ **ᴛᴇʟᴇᴛʜᴏɴ :** `{tlhver}`
 ㅤ๏ **ᴩʏʀᴏɢʀᴀᴍ :** `{pyrover}`
-━━━━━━━━━━━━━
-
-ᴍᴀᴅᴇ ʙʏ @{OWNER_USERNAME} """,
+━━━━━━━━━━━━
+ """,
                 parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
