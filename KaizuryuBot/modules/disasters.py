@@ -649,14 +649,14 @@ Visit @{SUPPORT_CHAT} for more information.
 """
 
 SUDO_HANDLER = CommandHandler(("addsudo", "adddragon"), addsudo)
-SUDO_HANDLER = CommandHandler(("addsudo", "adddragon", run_async=True), addsudo, run_async=True)
-SUPPORT_HANDLER = CommandHandler(("addsupport", "adddemon", run_async=True), addsupport, run_async=True)
-TIGER_HANDLER = CommandHandler(("addtiger", run_async=True), addtiger, run_async=True)
-WHITELIST_HANDLER = CommandHandler(("addwhitelist", "addwolf", run_async=True), addwhitelist, run_async=True)
-UNSUDO_HANDLER = CommandHandler(("removesudo", "removedragon", run_async=True), removesudo, run_async=True)
-UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removedemon", run_async=True), removesupport, run_async=True)
-UNTIGER_HANDLER = CommandHandler(("removetiger", run_async=True), removetiger, run_async=True)
-UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "removewolf", run_async=True), removewhitelist, run_async=True)
+SUDO_HANDLER = CommandHandler(("addsudo", "adddragon"), addsudo, run_async=True)
+SUPPORT_HANDLER = CommandHandler(("addsupport", "adddemon"), addsupport, run_async=True)
+TIGER_HANDLER = CommandHandler(("addtiger"), addtiger, run_async=True)
+WHITELIST_HANDLER = CommandHandler(("addwhitelist", "addwolf"), addwhitelist, run_async=True)
+UNSUDO_HANDLER = CommandHandler(("removesudo", "removedragon"), removesudo, run_async=True)
+UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removedemon"), removesupport, run_async=True)
+UNTIGER_HANDLER = CommandHandler(("removetiger"), removetiger, run_async=True)
+UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "removewolf"), removewhitelist, run_async=True)
 
 WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "wolves"], whitelistlist, run_async=True)
 TIGERLIST_HANDLER = CommandHandler(["tigers"], tigerlist, run_async=True)
