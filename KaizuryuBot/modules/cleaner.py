@@ -42,7 +42,6 @@ for handler_list in dispatcher.handlers:
             command_list += handler.command
 
 
-
 def clean_blue_text_must_click(update: Update, context: CallbackContext):
     bot = context.bot
     chat = update.effective_chat
@@ -63,7 +62,6 @@ def clean_blue_text_must_click(update: Update, context: CallbackContext):
 
             if command[0] not in command_list:
                 message.delete()
-
 
 
 @connection_status
@@ -101,7 +99,6 @@ def set_blue_text_must_click(update: Update, context: CallbackContext):
         message.reply_text(reply, parse_mode=ParseMode.HTML)
 
 
-
 @user_admin
 def add_bluetext_ignore(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -121,7 +118,6 @@ def add_bluetext_ignore(update: Update, context: CallbackContext):
     else:
         reply = "No command supplied to be ignored."
         message.reply_text(reply)
-
 
 
 @user_admin
@@ -147,7 +143,6 @@ def remove_bluetext_ignore(update: Update, context: CallbackContext):
         message.reply_text(reply)
 
 
-
 @user_admin
 def add_bluetext_ignore_global(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -168,7 +163,6 @@ def add_bluetext_ignore_global(update: Update, context: CallbackContext):
         message.reply_text(reply)
 
 
-
 @dev_plus
 def remove_bluetext_ignore_global(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -187,7 +181,6 @@ def remove_bluetext_ignore_global(update: Update, context: CallbackContext):
     else:
         reply = "No command supplied to be unignored."
         message.reply_text(reply)
-
 
 
 @dev_plus
@@ -228,16 +221,24 @@ __help__ = """
  ❍ /listblue*:* list currently whitelisted commands
 """
 
-SET_CLEAN_BLUE_TEXT_HANDLER = CommandHandler("cleanblue", set_blue_text_must_click, run_async=True)
-ADD_CLEAN_BLUE_TEXT_HANDLER = CommandHandler("ignoreblue", add_bluetext_ignore, run_async=True)
-REMOVE_CLEAN_BLUE_TEXT_HANDLER = CommandHandler("unignoreblue", remove_bluetext_ignore, run_async=True)
+SET_CLEAN_BLUE_TEXT_HANDLER = CommandHandler(
+    "cleanblue", set_blue_text_must_click, run_async=True
+)
+ADD_CLEAN_BLUE_TEXT_HANDLER = CommandHandler(
+    "ignoreblue", add_bluetext_ignore, run_async=True
+)
+REMOVE_CLEAN_BLUE_TEXT_HANDLER = CommandHandler(
+    "unignoreblue", remove_bluetext_ignore, run_async=True
+)
 ADD_CLEAN_BLUE_TEXT_GLOBAL_HANDLER = CommandHandler(
     "gignoreblue", add_bluetext_ignore_global, run_async=True
 )
 REMOVE_CLEAN_BLUE_TEXT_GLOBAL_HANDLER = CommandHandler(
     "ungignoreblue", remove_bluetext_ignore_global, run_async=True
 )
-LIST_CLEAN_BLUE_TEXT_HANDLER = CommandHandler("listblue", bluetext_ignore_list, run_async=True)
+LIST_CLEAN_BLUE_TEXT_HANDLER = CommandHandler(
+    "listblue", bluetext_ignore_list, run_async=True
+)
 CLEAN_BLUE_TEXT_HANDLER = MessageHandler(
     Filters.command & Filters.group, clean_blue_text_must_click, run_async=True
 )

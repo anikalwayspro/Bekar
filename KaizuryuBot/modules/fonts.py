@@ -495,8 +495,7 @@ SQUARE_HANDLER = DisableAbleCommandHandler("square", square, run_async=True)
 FSQUARE_HANDLER = DisableAbleCommandHandler("fsquare", fsquare, run_async=True)
 BLUE_HANDLER = DisableAbleCommandHandler("blue", blue, run_async=True)
 LATIN_HANDLER = DisableAbleCommandHandler("latin", latin, run_async=True)
-LINED_HANDLER = DisableAbleCommandHandler("lined", lined, run_async=True)\
-    
+LINED_HANDLER = DisableAbleCommandHandler("lined", lined, run_async=True)
 dispatcher.add_handler(WEEBIFY_HANDLER)
 dispatcher.add_handler(BUBBLE_HANDLER)
 dispatcher.add_handler(FBUBBLE_HANDLER)

@@ -14,10 +14,8 @@ from telegram.ext import CallbackContext, run_async
 GIF_ID = "CgACAgQAAx0CSVUvGgAC7KpfWxMrgGyQs-GUUJgt-TSO8cOIDgACaAgAAlZD0VHT3Zynpr5nGxsE"
 
 
-
 def runs(update: Update, context: CallbackContext):
     update.effective_message.reply_text(random.choice(fun_strings.RUN_STRINGS))
-
 
 
 def sanitize(update: Update, context: CallbackContext):
@@ -35,7 +33,6 @@ def sanitize(update: Update, context: CallbackContext):
     reply_animation(GIF_ID, caption=f"*Sanitizes {name}*")
 
 
-
 def sanitize(update: Update, context: CallbackContext):
     message = update.effective_message
     name = (
@@ -49,7 +46,6 @@ def sanitize(update: Update, context: CallbackContext):
         else message.reply_animation
     )
     reply_animation(random.choice(fun_strings.GIFS), caption=f"*Sanitizes {name}*")
-
 
 
 def slap(update: Update, context: CallbackContext):
@@ -110,7 +106,6 @@ def slap(update: Update, context: CallbackContext):
     reply_text(reply, parse_mode=ParseMode.HTML)
 
 
-
 def pat(update: Update, context: CallbackContext):
     bot = context.bot
     args = context.args
@@ -151,10 +146,8 @@ def pat(update: Update, context: CallbackContext):
         reply_to.reply_text(reply, parse_mode=ParseMode.HTML)
 
 
-
 def roll(update: Update, context: CallbackContext):
     update.message.reply_text(random.choice(range(1, 7)))
-
 
 
 def shout(update: Update, context: CallbackContext):
@@ -171,10 +164,8 @@ def shout(update: Update, context: CallbackContext):
     return update.effective_message.reply_text(msg, parse_mode="MARKDOWN")
 
 
-
 def toss(update: Update, context: CallbackContext):
     update.message.reply_text(random.choice(fun_strings.TOSS))
-
 
 
 def shrug(update: Update, context: CallbackContext):
@@ -185,7 +176,6 @@ def shrug(update: Update, context: CallbackContext):
     reply_text(r"¯\_(ツ)_/¯")
 
 
-
 def bluetext(update: Update, context: CallbackContext):
     msg = update.effective_message
     reply_text = (
@@ -194,7 +184,6 @@ def bluetext(update: Update, context: CallbackContext):
     reply_text(
         "/BLUE /TEXT\n/MUST /CLICK\n/I /AM /A /STUPID /ANIMAL /THAT /IS /ATTRACTED /TO /COLORS"
     )
-
 
 
 def rlg(update: Update, context: CallbackContext):
@@ -209,7 +198,6 @@ def rlg(update: Update, context: CallbackContext):
     update.message.reply_text(repl)
 
 
-
 def decide(update: Update, context: CallbackContext):
     reply_text = (
         update.effective_message.reply_to_message.reply_text
@@ -219,7 +207,6 @@ def decide(update: Update, context: CallbackContext):
     reply_text(random.choice(fun_strings.DECIDE))
 
 
-
 def eightball(update: Update, context: CallbackContext):
     reply_text = (
         update.effective_message.reply_to_message.reply_text
@@ -227,7 +214,6 @@ def eightball(update: Update, context: CallbackContext):
         else update.effective_message.reply_text
     )
     reply_text(random.choice(fun_strings.EIGHTBALL))
-
 
 
 def table(update: Update, context: CallbackContext):
@@ -295,7 +281,6 @@ weebyfont = [
     "丫",
     "乙",
 ]
-
 
 
 def weebify(update: Update, context: CallbackContext):

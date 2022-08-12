@@ -53,7 +53,6 @@ def get_user_id(username):
     return None
 
 
-
 @dev_plus
 def broadcast(update: Update, context: CallbackContext):
     to_send = update.effective_message.text.split(None, 1)
@@ -100,7 +99,6 @@ def broadcast(update: Update, context: CallbackContext):
         )
 
 
-
 def log_user(update: Update, context: CallbackContext):
     chat = update.effective_chat
     msg = update.effective_message
@@ -117,7 +115,6 @@ def log_user(update: Update, context: CallbackContext):
 
     if msg.forward_from:
         sql.update_user(msg.forward_from.id, msg.forward_from.username)
-
 
 
 @sudo_plus
@@ -144,7 +141,6 @@ def chats(update: Update, context: CallbackContext):
             filename="groups_list.txt",
             caption="Here be the list of groups in my database.",
         )
-
 
 
 def chat_checker(update: Update, context: CallbackContext):
@@ -179,7 +175,9 @@ BROADCAST_HANDLER = CommandHandler(
     ["broadcastall", "broadcastusers", "broadcastgroups"], broadcast, run_async=True
 )
 USER_HANDLER = MessageHandler(Filters.all & Filters.group, log_user, run_async=True)
-CHAT_CHECKER_HANDLER = MessageHandler(Filters.all & Filters.group, chat_checker, run_async=True)
+CHAT_CHECKER_HANDLER = MessageHandler(
+    Filters.all & Filters.group, chat_checker, run_async=True
+)
 CHATLIST_HANDLER = CommandHandler("groups", chats, run_async=True)
 
 dispatcher.add_handler(USER_HANDLER, USERS_GROUP)

@@ -15,7 +15,6 @@ AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
 
 
-
 def afk(update: Update, context: CallbackContext):
     args = update.effective_message.text.split(None, 1)
     user = update.effective_user
@@ -41,7 +40,6 @@ def afk(update: Update, context: CallbackContext):
         update.effective_message.reply_text("{} is now away!{}".format(fname, notice))
     except BadRequest:
         pass
-
 
 
 def no_longer_afk(update: Update, context: CallbackContext):
@@ -71,7 +69,6 @@ def no_longer_afk(update: Update, context: CallbackContext):
             update.effective_message.reply_text(chosen_option.format(firstname))
         except:
             return
-
 
 
 def reply_afk(update: Update, context: CallbackContext):

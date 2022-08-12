@@ -116,7 +116,6 @@ def make_bar(per):
     return "■" * done + "□" * (10 - done)
 
 
-
 def get_id(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
@@ -197,7 +196,6 @@ async def group_info(event) -> None:
     await event.reply(msg)
 
 
-
 def gifid(update: Update, context: CallbackContext):
     msg = update.effective_message
     if msg.reply_to_message and msg.reply_to_message.animation:
@@ -207,7 +205,6 @@ def gifid(update: Update, context: CallbackContext):
         )
     else:
         update.effective_message.reply_text("Please reply to a gif to get its ID.")
-
 
 
 def info(update: Update, context: CallbackContext):
@@ -329,7 +326,6 @@ def info(update: Update, context: CallbackContext):
                 document=open(f"{user.id}.png", "rb"),
                 caption=(text),
                 parse_mode=ParseMode.HTML,
-
             )
 
             os.remove(f"{user.id}.png")
@@ -345,7 +341,6 @@ def info(update: Update, context: CallbackContext):
         )
 
     rep.delete()
-
 
 
 def about_me(update: Update, context: CallbackContext):
@@ -373,7 +368,6 @@ def about_me(update: Update, context: CallbackContext):
         )
     else:
         update.effective_message.reply_text("There isnt one, use /setme to set one.")
-
 
 
 def set_about_me(update: Update, context: CallbackContext):
@@ -407,13 +401,11 @@ def set_about_me(update: Update, context: CallbackContext):
             )
 
 
-
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
     stats = "<b>🧐 ᴄᴜʀʀᴇɴᴛ sᴛᴀᴛs:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
     update.effective_message.reply_text(result, parse_mode=ParseMode.HTML)
-
 
 
 def about_bio(update: Update, context: CallbackContext):
@@ -443,7 +435,6 @@ def about_bio(update: Update, context: CallbackContext):
         update.effective_message.reply_text(
             "You haven't had a bio set about yourself yet!"
         )
-
 
 
 def set_about_bio(update: Update, context: CallbackContext):

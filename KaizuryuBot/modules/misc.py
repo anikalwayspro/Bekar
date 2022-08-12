@@ -32,7 +32,6 @@ Keep in mind that your message <b>MUST</b> contain some text other than just a b
 """
 
 
-
 @user_admin
 def echo(update: Update, context: CallbackContext):
     args = update.effective_message.text.split(None, 1)
@@ -59,7 +58,6 @@ def markdown_help_sender(update: Update):
         "[URL](example.com) [button](buttonurl:github.com) "
         "[button2](buttonurl://google.com:same)"
     )
-
 
 
 def markdown_help(update: Update, context: CallbackContext):
@@ -103,7 +101,9 @@ Output: `1.0 USD = 75.505 INR`
 
 """
 
-ECHO_HANDLER = DisableAbleCommandHandler("echo", echo, filters=Filters.chat_type.groups, run_async=True)
+ECHO_HANDLER = DisableAbleCommandHandler(
+    "echo", echo, filters=Filters.chat_type.groups, run_async=True
+)
 MD_HELP_HANDLER = CommandHandler("markdownhelp", markdown_help, run_async=True)
 
 dispatcher.add_handler(ECHO_HANDLER)
