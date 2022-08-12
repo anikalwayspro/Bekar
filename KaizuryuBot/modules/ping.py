@@ -68,7 +68,6 @@ def ping_func(to_ping: List[str]) -> List[str]:
     return ping_result
 
 
-
 @sudo_plus
 def ping(update: Update, context: CallbackContext):
     msg = update.effective_message
@@ -85,7 +84,6 @@ def ping(update: Update, context: CallbackContext):
         "<b>ᴜᴘᴛɪᴍᴇ:</b> <code>{}</code>".format(telegram_ping, uptime),
         parse_mode=ParseMode.HTML,
     )
-
 
 
 @sudo_plus

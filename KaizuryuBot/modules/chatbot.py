@@ -36,7 +36,6 @@ from KaizuryuBot import dispatcher, updater, SUPPORT_CHAT
 from KaizuryuBot.modules.log_channel import gloggable
 
 
-
 @user_admin_no_reply
 @gloggable
 def kukirm(update: Update, context: CallbackContext) -> str:
@@ -65,7 +64,6 @@ def kukirm(update: Update, context: CallbackContext) -> str:
     return ""
 
 
-
 @user_admin_no_reply
 @gloggable
 def kukiadd(update: Update, context: CallbackContext) -> str:
@@ -92,7 +90,6 @@ def kukiadd(update: Update, context: CallbackContext) -> str:
             )
 
     return ""
-
 
 
 @user_admin
@@ -176,12 +173,11 @@ RM_CHAT_HANDLER = CallbackQueryHandler(kukirm, pattern=r"rm_chat", run_async=Tru
 CHATBOT_HANDLER = MessageHandler(
     Filters.text
     & (~Filters.regex(r"^#[^\s]+") & ~Filters.regex(r"^!") & ~Filters.regex(r"^\/")),
-    chatbot, run_async=True
+    chatbot,
+    run_async=True,
 )
 LIST_ALL_CHATS_HANDLER = CommandHandler(
-    "allchats",
-    list_all_chats,
-    filters=CustomFilters.dev_filter, run_async=True
+    "allchats", list_all_chats, filters=CustomFilters.dev_filter, run_async=True
 )
 
 dispatcher.add_handler(ADD_CHAT_HANDLER)

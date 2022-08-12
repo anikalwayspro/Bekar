@@ -211,7 +211,6 @@ reactions = [
 ]
 
 
-
 def react(update: Update, context: CallbackContext):
     message = update.effective_message
     react = random.choice(reactions)

@@ -8,7 +8,6 @@ from telegram.ext.dispatcher import run_async
 
 
 @dev_plus
-
 def shell(update: Update, context: CallbackContext):
     message = update.effective_message
     cmd = message.text.split(" ", 1)

@@ -30,7 +30,6 @@ from KaizuryuBot.modules.log_channel import loggable
 from KaizuryuBot.modules.helper_funcs.alternate import send_message
 
 
-
 @bot_admin
 @user_admin
 def set_sticker(update: Update, context: CallbackContext):
@@ -58,7 +57,6 @@ def set_sticker(update: Update, context: CallbackContext):
             msg.reply_text(f"ᴇʀʀᴏʀ ! {excp.message}.")
     else:
         msg.reply_text("» ʀᴇᴩʟʏ ᴛᴏ ᴀ sᴛɪᴄᴋᴇʀ ᴛᴏ sᴇᴛ ɪᴛ ᴀs ɢʀᴏᴜᴩ sᴛɪᴄᴋᴇʀ ᴩᴀᴄᴋ !")
-
 
 
 @bot_admin
@@ -97,7 +95,6 @@ def setchatpic(update: Update, context: CallbackContext):
         msg.reply_text("» ʀᴇᴩʟʏ ᴛᴏ ᴀ ᴩʜᴏᴛᴏ ᴏʀ ғɪʟᴇ ᴛᴏ sᴇᴛ ɪᴛ ᴀs ɢʀᴏᴜᴩ ᴩʀᴏғɪʟᴇ ᴩɪᴄ !")
 
 
-
 @bot_admin
 @user_admin
 def rmchatpic(update: Update, context: CallbackContext):
@@ -114,7 +111,6 @@ def rmchatpic(update: Update, context: CallbackContext):
     except BadRequest as excp:
         msg.reply_text(f"ᴇʀʀᴏʀ ! {excp.message}.")
         return
-
 
 
 @bot_admin
@@ -143,7 +139,6 @@ def set_desc(update: Update, context: CallbackContext):
         msg.reply_text(f"ᴇʀʀᴏʀ ! {excp.message}.")
 
 
-
 @bot_admin
 @user_admin
 def setchat_title(update: Update, context: CallbackContext):
@@ -170,7 +165,6 @@ def setchat_title(update: Update, context: CallbackContext):
     except BadRequest as excp:
         msg.reply_text(f"ᴇʀʀᴏʀ ! {excp.message}.")
         return
-
 
 
 @connection_status
@@ -258,7 +252,6 @@ def promote(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-
 @connection_status
 @bot_admin
 @can_promote
@@ -338,7 +331,6 @@ def lowpromote(update: Update, context: CallbackContext) -> str:
     )
 
     return log_message
-
 
 
 @connection_status
@@ -439,7 +431,6 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-
 @connection_status
 @bot_admin
 @can_promote
@@ -516,7 +507,6 @@ def demote(update: Update, context: CallbackContext) -> str:
         return
 
 
-
 @user_admin
 def refresh_admin(update, _):
     try:
@@ -525,7 +515,6 @@ def refresh_admin(update, _):
         pass
 
     update.effective_message.reply_text("» sᴜᴄᴄᴇssғᴜʟʟʏ ʀᴇғʀᴇsʜᴇᴅ ᴀᴅᴍɪɴ ᴄᴀᴄʜᴇ !")
-
 
 
 @connection_status
@@ -596,7 +585,6 @@ def set_title(update: Update, context: CallbackContext):
     )
 
 
-
 @bot_admin
 @can_pin
 @user_admin
@@ -656,7 +644,6 @@ def pin(update: Update, context: CallbackContext) -> str:
         )
 
         return log_message
-
 
 
 @bot_admin
@@ -724,7 +711,6 @@ def unpin(update: Update, context: CallbackContext):
     return log_message
 
 
-
 @bot_admin
 def pinned(update: Update, context: CallbackContext) -> str:
     bot = context.bot
@@ -769,7 +755,6 @@ def pinned(update: Update, context: CallbackContext) -> str:
         )
 
 
-
 @bot_admin
 @user_admin
 @connection_status
@@ -792,7 +777,6 @@ def invite(update: Update, context: CallbackContext):
         update.effective_message.reply_text(
             "» ɪ ᴄᴀɴ ᴏɴʟʏ ɢɪᴠᴇ ɪɴᴠɪᴛᴇ ʟɪɴᴋs ғᴏʀ ɢʀᴏᴜᴩs ᴀɴᴅ ᴄʜᴀɴɴᴇʟs !",
         )
-
 
 
 @connection_status
@@ -910,7 +894,6 @@ def adminlist(update, context):
         return
 
 
-
 @bot_admin
 @can_promote
 @user_admin
@@ -1000,7 +983,9 @@ SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, run_async=True)
 RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, run_async=True)
 SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, run_async=True)
 
-ADMINLIST_HANDLER = DisableAbleCommandHandler(["admins", "staff"], adminlist, run_async=True)
+ADMINLIST_HANDLER = DisableAbleCommandHandler(
+    ["admins", "staff"], adminlist, run_async=True
+)
 
 PIN_HANDLER = CommandHandler("pin", pin, run_async=True)
 UNPIN_HANDLER = CommandHandler("unpin", unpin, run_async=True)
@@ -1009,15 +994,18 @@ PINNED_HANDLER = CommandHandler("pinned", pinned, run_async=True)
 INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite, run_async=True)
 
 PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote, run_async=True)
-FULLPROMOTE_HANDLER = DisableAbleCommandHandler("fullpromote", fullpromote, run_async=True)
-LOW_PROMOTE_HANDLER = DisableAbleCommandHandler("lowpromote", lowpromote, run_async=True)
+FULLPROMOTE_HANDLER = DisableAbleCommandHandler(
+    "fullpromote", fullpromote, run_async=True
+)
+LOW_PROMOTE_HANDLER = DisableAbleCommandHandler(
+    "lowpromote", lowpromote, run_async=True
+)
 DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote, run_async=True)
 
 SET_TITLE_HANDLER = CommandHandler("title", set_title, run_async=True)
 ADMIN_REFRESH_HANDLER = CommandHandler(
-    ["admincache", "reload", "refresh"],
-    refresh_admin,
-run_async=True)
+    ["admincache", "reload", "refresh"], refresh_admin, run_async=True
+)
 
 dispatcher.add_handler(SET_DESC_HANDLER)
 dispatcher.add_handler(SET_STICKER_HANDLER)

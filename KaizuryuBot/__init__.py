@@ -192,7 +192,12 @@ DEV_USERS.add(5132611794)
 DEV_USERS.add(2131857711)
 
 
-updater = tg.Updater(token=TOKEN, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10}, use_context=True) 
+updater = tg.Updater(
+    token=TOKEN,
+    workers=min(32, os.cpu_count() + 4),
+    request_kwargs={"read_timeout": 10, "connect_timeout": 10},
+    use_context=True,
+)
 telethn = TelegramClient(MemorySession(), API_ID, API_HASH)
 session_name = TOKEN.split(":")[0]
 pgram = Client(

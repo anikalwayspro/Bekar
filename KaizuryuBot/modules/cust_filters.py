@@ -50,7 +50,6 @@ ENUM_FUNC_MAP = {
 }
 
 
-
 @typing_action
 def list_handlers(update, context):
     chat = update.effective_chat
@@ -269,7 +268,6 @@ def stop_filter(update, context):
     )
 
 
-
 def reply_filter(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
     message = update.effective_message  # type: Optional[Message]
@@ -414,7 +412,6 @@ def reply_filter(update, context):
                             caption=markdown_to_html(filtext),
                             reply_to_message_id=message.message_id,
                             parse_mode=ParseMode.HTML,
-
                             reply_markup=keyboard,
                         )
                     except BadRequest:
@@ -446,7 +443,6 @@ def reply_filter(update, context):
                             update.effective_message,
                             filt.reply,
                             parse_mode=ParseMode.MARKDOWN,
-
                             reply_markup=keyboard,
                         )
                     except BadRequest as excp:
@@ -467,7 +463,6 @@ def reply_filter(update, context):
                                     chat.id,
                                     filt.reply,
                                     parse_mode=ParseMode.MARKDOWN,
-   
                                     reply_markup=keyboard,
                                 )
                             except BadRequest as excp:
@@ -501,7 +496,6 @@ def reply_filter(update, context):
                 break
 
 
-
 def rmall_filters(update, context):
     chat = update.effective_chat
     user = update.effective_user
@@ -526,7 +520,6 @@ def rmall_filters(update, context):
             reply_markup=buttons,
             parse_mode=ParseMode.MARKDOWN,
         )
-
 
 
 def rmall_callback(update, context):
@@ -646,10 +639,16 @@ STOP_HANDLER = CommandHandler("stop", stop_filter, run_async=True)
 RMALLFILTER_HANDLER = CommandHandler(
     "removeallfilters", rmall_filters, filters=Filters.chat_type.groups, run_async=True
 )
-RMALLFILTER_CALLBACK = CallbackQueryHandler(rmall_callback, pattern=r"filters_.*", run_async=True)
-LIST_HANDLER = DisableAbleCommandHandler("filters", list_handlers, admin_ok=True, run_async=True)
+RMALLFILTER_CALLBACK = CallbackQueryHandler(
+    rmall_callback, pattern=r"filters_.*", run_async=True
+)
+LIST_HANDLER = DisableAbleCommandHandler(
+    "filters", list_handlers, admin_ok=True, run_async=True
+)
 CUST_FILTER_HANDLER = MessageHandler(
-    CustomFilters.has_text & ~Filters.update.edited_message, reply_filter, run_async=True
+    CustomFilters.has_text & ~Filters.update.edited_message,
+    reply_filter,
+    run_async=True,
 )
 
 dispatcher.add_handler(FILTER_HANDLER)

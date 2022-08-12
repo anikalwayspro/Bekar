@@ -52,7 +52,6 @@ def check_user_id(user_id: int, context: CallbackContext) -> Optional[str]:
 ### Deep link example ends
 
 
-
 @dev_plus
 @gloggable
 def addsudo(update: Update, context: CallbackContext) -> str:
@@ -109,7 +108,6 @@ def addsudo(update: Update, context: CallbackContext) -> str:
         log_message = f"<b>{html.escape(chat.title)}:</b>\n" + log_message
 
     return log_message
-
 
 
 @sudo_plus
@@ -170,7 +168,6 @@ def addsupport(
     return log_message
 
 
-
 @sudo_plus
 @gloggable
 def addwhitelist(update: Update, context: CallbackContext) -> str:
@@ -224,7 +221,6 @@ def addwhitelist(update: Update, context: CallbackContext) -> str:
         log_message = f"<b>{html.escape(chat.title)}:</b>\n" + log_message
 
     return log_message
-
 
 
 @sudo_plus
@@ -287,7 +283,6 @@ def addtiger(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-
 @dev_plus
 @gloggable
 def removesudo(update: Update, context: CallbackContext) -> str:
@@ -328,7 +323,6 @@ def removesudo(update: Update, context: CallbackContext) -> str:
     else:
         message.reply_text("This user is not a Dragon Disaster!")
         return ""
-
 
 
 @sudo_plus
@@ -373,7 +367,6 @@ def removesupport(update: Update, context: CallbackContext) -> str:
         return ""
 
 
-
 @sudo_plus
 @gloggable
 def removewhitelist(update: Update, context: CallbackContext) -> str:
@@ -413,7 +406,6 @@ def removewhitelist(update: Update, context: CallbackContext) -> str:
     else:
         message.reply_text("This user is not a Wolf Disaster!")
         return ""
-
 
 
 @sudo_plus
@@ -457,7 +449,6 @@ def removetiger(update: Update, context: CallbackContext) -> str:
         return ""
 
 
-
 @whitelist_plus
 def whitelistlist(update: Update, context: CallbackContext):
     reply = "<b>Known Wolf Disasters 🐺:</b>\n"
@@ -474,7 +465,6 @@ def whitelistlist(update: Update, context: CallbackContext):
         except TelegramError:
             pass
     m.edit_text(reply, parse_mode=ParseMode.HTML)
-
 
 
 @whitelist_plus
@@ -494,7 +484,6 @@ def tigerlist(update: Update, context: CallbackContext):
     m.edit_text(reply, parse_mode=ParseMode.HTML)
 
 
-
 @whitelist_plus
 def supportlist(update: Update, context: CallbackContext):
     bot = context.bot
@@ -510,7 +499,6 @@ def supportlist(update: Update, context: CallbackContext):
         except TelegramError:
             pass
     m.edit_text(reply, parse_mode=ParseMode.HTML)
-
 
 
 @whitelist_plus
@@ -529,7 +517,6 @@ def sudolist(update: Update, context: CallbackContext):
         except TelegramError:
             pass
     m.edit_text(reply, parse_mode=ParseMode.HTML)
-
 
 
 @whitelist_plus
@@ -652,15 +639,27 @@ SUDO_HANDLER = CommandHandler(("addsudo", "adddragon"), addsudo)
 SUDO_HANDLER = CommandHandler(("addsudo", "adddragon"), addsudo, run_async=True)
 SUPPORT_HANDLER = CommandHandler(("addsupport", "adddemon"), addsupport, run_async=True)
 TIGER_HANDLER = CommandHandler(("addtiger"), addtiger, run_async=True)
-WHITELIST_HANDLER = CommandHandler(("addwhitelist", "addwolf"), addwhitelist, run_async=True)
-UNSUDO_HANDLER = CommandHandler(("removesudo", "removedragon"), removesudo, run_async=True)
-UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removedemon"), removesupport, run_async=True)
+WHITELIST_HANDLER = CommandHandler(
+    ("addwhitelist", "addwolf"), addwhitelist, run_async=True
+)
+UNSUDO_HANDLER = CommandHandler(
+    ("removesudo", "removedragon"), removesudo, run_async=True
+)
+UNSUPPORT_HANDLER = CommandHandler(
+    ("removesupport", "removedemon"), removesupport, run_async=True
+)
 UNTIGER_HANDLER = CommandHandler(("removetiger"), removetiger, run_async=True)
-UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "removewolf"), removewhitelist, run_async=True)
+UNWHITELIST_HANDLER = CommandHandler(
+    ("removewhitelist", "removewolf"), removewhitelist, run_async=True
+)
 
-WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "wolves"], whitelistlist, run_async=True)
+WHITELISTLIST_HANDLER = CommandHandler(
+    ["whitelistlist", "wolves"], whitelistlist, run_async=True
+)
 TIGERLIST_HANDLER = CommandHandler(["tigers"], tigerlist, run_async=True)
-SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "demons"], supportlist, run_async=True)
+SUPPORTLIST_HANDLER = CommandHandler(
+    ["supportlist", "demons"], supportlist, run_async=True
+)
 SUDOLIST_HANDLER = CommandHandler(["sudolist", "dragons"], sudolist, run_async=True)
 DEVLIST_HANDLER = CommandHandler(["devlist", "heroes"], devlist, run_async=True)
 

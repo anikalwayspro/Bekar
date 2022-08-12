@@ -11,7 +11,6 @@ def convert(speed):
 
 
 @dev_plus
-
 def speedtestxyz(update: Update, context: CallbackContext):
     buttons = [
         [
@@ -22,7 +21,6 @@ def speedtestxyz(update: Update, context: CallbackContext):
     update.effective_message.reply_text(
         "sᴩᴇᴇᴅᴛᴇsᴛ ᴍᴏᴅᴇ", reply_markup=InlineKeyboardMarkup(buttons)
     )
-
 
 
 def speedtestxyz_callback(update: Update, context: CallbackContext):
@@ -51,7 +49,9 @@ def speedtestxyz_callback(update: Update, context: CallbackContext):
         query.answer("You are required to join @Kaizuryu to use this command.")
 
 
-SPEED_TEST_HANDLER = DisableAbleCommandHandler("speedtest", speedtestxyz, run_async=True)
+SPEED_TEST_HANDLER = DisableAbleCommandHandler(
+    "speedtest", speedtestxyz, run_async=True
+)
 SPEED_TEST_CALLBACKHANDLER = CallbackQueryHandler(
     speedtestxyz_callback, pattern="speedtest_.*", run_async=True
 )
