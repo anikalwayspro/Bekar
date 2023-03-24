@@ -34,7 +34,7 @@
          "required": true,
          "value": ""
       },    
-      "SQLALCHEMY_DATABASE_URI": {
+      "DATABASE_URI": {
          "description": "Your postgres sql db, Leave this field empty if you don't have one.",
          "required": false,
          "value": ""
