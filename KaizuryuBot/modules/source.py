@@ -7,7 +7,7 @@ from pyrogram import filters
 from KaizuryuBot import pgram as client, dispatcher, OWNER_USERNAME
 
 
-Kaizuryu = "https://telegra.ph/file/9b57400269bec8352c09f.jpg"
+Kaizuryu = "https://telegra.ph/file/46db0982ecbe5a1e2bffe.jpg"
 
 
 @client.on_message(filters.command(["repo", "source"]))
@@ -22,17 +22,17 @@ async def repo(client, message):
 **» ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{s}` 
 **» ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :** `{z}`
 
-**{dispatcher.bot.username} sᴏᴜʀᴄᴇ ɪs ɴᴏᴡ ᴩᴜʙʟɪᴄ ᴀɴᴅ ɴᴏᴡ ʏᴏᴜ ᴄᴀɴ ᴍᴀᴋᴇ ʏᴏᴜʀ ᴏᴡɴ ʙᴏᴛ.**
+**{dispatcher.bot.username} If You Want Repo Of This Bot Please Contact To My Owner**
 """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "• ᴏᴡɴᴇʀ •", url=f"https://t.me/{OWNER_USERNAME}"
+                        "• Owner •", url=f"https://t.me/{OWNER_USERNAME}"
                     ),
                     InlineKeyboardButton(
-                        "• sᴏᴜʀᴄᴇ •",
-                        url="https://github.com/RimuruDemonlord/KaizuryuBot",
+                        "• Support •",
+                        url="https://t.me/Samurai_botsupport",
                     ),
                 ]
             ]
