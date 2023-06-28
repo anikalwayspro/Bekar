@@ -94,7 +94,7 @@ PM_START_TEXT = """
 buttons = [
     [
         InlineKeyboardButton(
-            text="CLICK HERE TO SUMMON ME IN YOUR GROUP",
+            text="SUMMON ME ⚡",
             url=f"https://t.me/{dispatcher.bot.username}?startgroup=true",
         ),
     ],
