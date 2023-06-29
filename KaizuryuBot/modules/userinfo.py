@@ -237,7 +237,7 @@ def info(update: Update, context: CallbackContext):
     rep = message.reply_text("<code>ᴀᴩᴩʀᴀɪsɪɴɢ...</code>", parse_mode=ParseMode.HTML)
 
     text = (
-        f"ㅤ ㅤㅤ      ✦ ᴜsᴇʀ ɪɴғᴏ ✦\n•❅─────✧❅✦❅✧─────❅•\n"
+        f"ㅤ ㅤㅤ      𖣘 ᴜsᴇʀ ɪɴғᴏ 𖣘\n•❅─────✧❅✦❅✧─────❅•\n"
         f"➻ <b>ᴜsᴇʀ ɪᴅ:</b> <code>{user.id}</code>\n"
         f"➻ <b>ғɪʀsᴛ ɴᴀᴍᴇ:</b> {html.escape(user.first_name)}"
     )
@@ -403,7 +403,7 @@ def set_about_me(update: Update, context: CallbackContext):
 
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
-    stats = "<b> 𝘚𝘢𝘮𝘶𝘳𝘢𝘪 𝘚𝘶𝘣𝘫𝘦𝘤𝘵 𝘋𝘢𝘵𝘢:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
+    stats = "<b> 𖣘 𝘚𝘢𝘮𝘶𝘳𝘢𝘪 𝘚𝘶𝘣𝘫𝘦𝘤𝘵 𝘋𝘢𝘵𝘢 𖣘:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
     update.effective_message.reply_text(result, parse_mode=ParseMode.HTML)
 
