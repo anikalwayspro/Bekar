@@ -161,7 +161,7 @@ def gban(update: Update, context: CallbackContext):
 
         return
 
-    message.reply_text("On it!")
+    message.reply_text("Sharingan 𖣘 . . .")
 
     start_time = time.time()
     datetime_fmt = "%Y-%m-%dT%H:%M"
@@ -173,7 +173,7 @@ def gban(update: Update, context: CallbackContext):
         chat_origin = "<b>{}</b>\n".format(chat.id)
 
     log_message = (
-        f"#GBANNED\n"
+        f"#GBANNED•Kakashi-bot\n"
         f"<b>Originated from:</b> <code>{chat_origin}</code>\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
         f"<b>Banned User:</b> {mention_html(user_chat.id, user_chat.first_name)}\n"
@@ -254,9 +254,9 @@ def gban(update: Update, context: CallbackContext):
 
     if gban_time > 60:
         gban_time = round((gban_time / 60), 2)
-        message.reply_text("Done! Gbanned.", parse_mode=ParseMode.HTML)
+        message.reply_text("This User Is Now Under My Genjustu", parse_mode=ParseMode.HTML)
     else:
-        message.reply_text("Done! Gbanned.", parse_mode=ParseMode.HTML)
+        message.reply_text("This User Is Now Under My Genjustu", parse_mode=ParseMode.HTML)
 
     try:
         bot.send_message(
@@ -308,7 +308,7 @@ def ungban(update: Update, context: CallbackContext):
         chat_origin = f"<b>{chat.id}</b>\n"
 
     log_message = (
-        f"#UNGBANNED\n"
+        f"#UNGBANNED•kakashi-bot\n"
         f"<b>Originated from:</b> <code>{chat_origin}</code>\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
         f"<b>Unbanned User:</b> {mention_html(user_chat.id, user_chat.first_name)}\n"
