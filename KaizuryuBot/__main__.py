@@ -94,17 +94,17 @@ PM_START_TEXT = """
 buttons = [
     [
         InlineKeyboardButton(
-            text="SUMMON ME ⚡",
+            text="⚡ SUMMON ME ⚡",
             url=f"https://t.me/{dispatcher.bot.username}?startgroup=true",
         ),
     ],
     [
-        InlineKeyboardButton(text="SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}"),
+        InlineKeyboardButton(text="𖣘SUPPORT𖣘", url=f"https://t.me/{SUPPORT_CHAT}"),
     ],
     [
-        InlineKeyboardButton(text="MY VILLAGE", url=f"https://t.me/hiddenleafvillagee"),
+        InlineKeyboardButton(text="MY🍃VILLAGE", url=f"https://t.me/hiddenleafvillagee"),
         InlineKeyboardButton(
-            text="UPDATES", url=f"https://t.me/samurai_bot_updates"
+            text="𖣘UPDATES𖣘", url=f"https://t.me/samurai_bot_updates"
         ),
     ],
 ]
