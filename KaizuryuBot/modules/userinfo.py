@@ -275,10 +275,10 @@ def info(update: Update, context: CallbackContext):
         text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>𝘽𝙊𝙏𝙊𝙒𝙉𝙀𝙍</b>.\n"
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nTh3 Disaster Level of This person Is b>𝐊𝐚𝐤𝐚𝐬𝐡𝐢_𝐅𝐫𝐢𝐞𝐧𝐝</b>.\n"
+        text += "\n\n\The Disaster Level of This person Is b>𝐊𝐀𝐊𝐀𝐒𝐇𝐈 𝐒𝐄𝐍𝐒𝐄𝐈</b>.\n"
         disaster_level_present = True
     elif user.id in DRAGONS:
-        text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>ᴅʀᴀɢᴏɴ</b>.\n"
+        text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>𝘒𝘈𝘒𝘈𝘚𝘏𝘐 𝘚𝘛𝘜𝘋𝘌𝘕𝘛</b>.\n"
         disaster_level_present = True
     elif user.id in DEMONS:
         text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>ᴅᴇᴍᴏɴ</b>.\n"
@@ -403,7 +403,7 @@ def set_about_me(update: Update, context: CallbackContext):
 
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
-    stats = "<b>🧐 ᴄᴜʀʀᴇɴᴛ sᴛᴀᴛs:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
+    stats = "<b> 𝘚𝘢𝘮𝘶𝘳𝘢𝘪 𝘚𝘶𝘣𝘫𝘦𝘤𝘵 𝘋𝘢𝘵𝘢:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
     update.effective_message.reply_text(result, parse_mode=ParseMode.HTML)
 
