@@ -106,7 +106,7 @@ __mod_name__="Whisper"
 __help__ = """
 *──「 Whisper 」──*
 This is how Inline Whisper feature works:
-✮ `@BoaXHancockRobot your message @username OR UserID`
+✮ `@Kakashi_ultrabot your message @username OR UserID`
                             OR
-✮ `@BoaXHancockRobot @username OR UserID your message`
+✮ `@Kakashi_ultrabot @username OR UserID your message`
 """
