@@ -32,7 +32,7 @@ async def repo(client, message):
                     ),
                     InlineKeyboardButton(
                         "• Support •",
-                        url="https://t.me/Samurai_botsupport",
+                        url="https://t.me/jujutsu_x_support",
                     ),
                 ]
             ]
